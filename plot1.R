@@ -7,3 +7,14 @@ library(dplyr)
 ## Read in the Data 
 NEI <- data.table(readRDS("summarySCC_PM25.rds"))
 SCC <- data.table(readRDS("Source_Classification_Code.rds"))
+
+## Format the Data 
+cleaned = NEI %>% 
+            filter(Pollutant == 'PM25-PRI') %>% 
+            select(year,Emissions) %>% 
+            group_by(year) %>% 
+            summarise(EmissionSummary = sum(Emissions))
+
+png('plot1.png')
+plot(cleaned$year,cleaned$EmissionSummary)
+dev.off()
