@@ -1,6 +1,5 @@
 ## Set the working directory and load the required packages
 setwd("/home/thomas/JHU DataScience Courses/R Directory/ExploratoryDataAnalysisFinal")
-library(ggplot2)
 library(data.table)
 library(dplyr)
 
